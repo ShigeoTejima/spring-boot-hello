@@ -2,17 +2,12 @@ package com.example.demo.handler
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.web.reactive.function.server.RequestPredicates.GET
-import org.springframework.web.reactive.function.server.RouterFunction
-import org.springframework.web.reactive.function.server.RouterFunctions
-import org.springframework.web.reactive.function.server.ServerResponse
 
 @Configuration
-class GreetingRouter {
-
+class GreetingRouter(private val handler: GreetingHandler) {
     @Bean
-    fun route(greetHandler: GreetingHandler): RouterFunction<ServerResponse> {
-        return RouterFunctions
-            .route(GET("/hello"), greetHandler::hello)
+    fun router() = org.springframework.web.reactive.function.server.router {
+        GET("/hello", handler::hello)
     }
+
 }
