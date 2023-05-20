@@ -1,8 +1,8 @@
 package com.example.demo.usecase
 
-import org.springframework.stereotype.Component
+import jakarta.inject.Named
 
-@Component
+@Named
 class GreetingUsecase {
 
     fun hello(): String {
