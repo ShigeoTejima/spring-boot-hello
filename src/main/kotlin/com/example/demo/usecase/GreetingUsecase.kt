@@ -1,6 +1,6 @@
 package com.example.demo.usecase
 
-import jakarta.inject.Named
+import javax.inject.Named
 
 @Named
 class GreetingUsecase {
